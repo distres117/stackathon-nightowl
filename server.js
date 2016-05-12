@@ -1,8 +1,8 @@
 var app = require('./app'),
-  connect = require('./db'),
+  db = require('./db'),
   chalk = require('chalk');
 
-connect()
+db.connect()
 .then(function(){
   var port = process.env.PORT || 3000;
   console.log(chalk.green('Db is connected...'));

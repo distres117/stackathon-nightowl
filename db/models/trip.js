@@ -13,4 +13,5 @@ var schema = mongoose.Schema({
   }
 });
 
+
 mongoose.model('Trip', schema);

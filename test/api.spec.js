@@ -2,7 +2,7 @@ var expect = require('chai').expect,
   apicall = require('../util/googleapi'),
   Promise = require('bluebird');
 
-describe('google places api', function(){
+xdescribe('google places api', function(){
 
   xit('gets data within certain proximity using promises', function(){
     var parameters = {
