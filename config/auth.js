@@ -35,9 +35,10 @@ router.post('/create', function(req,res,next){
 });
 
 router.get('/session', function(req,res,next){
-    //mongoose.model('User').findById(req.session.user._id)
-      res.json(req.session.user);
-
+    mongoose.model('User').findById(req.session.user._id)
+    .then(function(user){
+      res.json(user);
+    });
 });
 
 module.exports = router;

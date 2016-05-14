@@ -15,11 +15,18 @@ var schema = mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  trips: [mongoose.model('Trip').schema]
+  trips: [mongoose.model('Trip').schema],
+  encrypted: {
+    type:Boolean,
+    default: false
+  }
 
 });
 schema.pre('save',function(next){
-  this.password = bcrypt.hashSync(this.password);
+  if (!this.encrypted){
+    this.password = bcrypt.hashSync(this.password);
+    this.encrypted = true;
+  }
   next();
 });
 

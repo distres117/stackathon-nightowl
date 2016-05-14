@@ -45,13 +45,12 @@ router.route('/:tripId')
       var stop = new Stop();
       stop.name = params.name;
       stop.coords = params.coords;
-      
-
-      req.trip.stops.push(stop);
+      stop.price = params.price;
+      req.trip.stops.unshift(stop);
     }
     req.user.save()
     .then(function(user){
-      res.json(req.trip);
+      res.json(user);
     });
   });
 

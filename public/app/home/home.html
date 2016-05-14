@@ -21,7 +21,7 @@
           </marker>
     </ng-map>
     <button ng-show="currentDisplayStop()" class="btn btn-success btn-block" ng-click="addStop()" type="button">+Add this stop</button>
-    <button ng-hide="!getCurrent()" class="btn btn-danger btn-block" type="button">Remove this stop</button>
+    <button ng-hide="!getCurrent()" class="btn btn-danger btn-block" type="button" ng-click="removeStop()">Remove this stop</button>
 </div>
 <p> </p>
 <div class="col-lg-4 col-md-4">

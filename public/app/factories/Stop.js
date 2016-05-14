@@ -33,6 +33,13 @@ app.factory('Stop', function(NgMap){
       else {
         shownStops = [stops];
       }
+      var bounds = new google.maps.LatLngBounds();
+      shownStops.forEach(function(stop){
+        var latlng = new google.maps.LatLng(stop.coords[0], stop.coords[1]);
+        bounds.extend(latlng);
+      });
+      map.setCenter(bounds.getCenter());
+      map.fitBounds(bounds);
     }
   };
 });
