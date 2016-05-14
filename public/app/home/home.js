@@ -4,7 +4,6 @@ app.config(function($stateProvider){
       url: '/',
       templateUrl: '/app/home/home.html',
       controller: function(user, $state, $rootScope, $scope, Stop,Trip, Google){
-        console.log(user);
         $rootScope.hidenav = false;
         if (!user)
           $state.go('login');
