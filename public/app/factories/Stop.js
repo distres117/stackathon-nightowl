@@ -7,6 +7,7 @@ app.factory('Stop', function(NgMap){
     setCurrent: function(stop){
       currentDisplayStop = null;
       currentStop = stop;
+      map.hideInfoWindow('iw');
 
     },
     clearCurrent: function(){
@@ -38,8 +39,10 @@ app.factory('Stop', function(NgMap){
         var latlng = new google.maps.LatLng(stop.coords[0], stop.coords[1]);
         bounds.extend(latlng);
       });
-      map.setCenter(bounds.getCenter());
-      map.fitBounds(bounds);
+      if (shownStops.length)
+        map.setCenter(bounds.getCenter());
+      if (shownStops.length > 1)
+        map.fitBounds(bounds);
     }
   };
 });

@@ -7,6 +7,9 @@ app.factory('Trip', function($http, Stop){
       };
       return $http.put('/api/trips/' + currentTrip._id, {stop: stop})
       .then(function(res){
+        var newStop = res.data;
+        Stop.setCurrent(newStop);
+        Stop.setShownStops(stop);
         currentTrip.stops.unshift(stop);
       });
     },
@@ -15,6 +18,7 @@ app.factory('Trip', function($http, Stop){
       .then(function(){
         var idx = currentTrip.stops.indexOf(stop);
         currentTrip.stops.splice(idx,1);
+        Stop.clearCurrent();
         Stop.setShownStops([]);
       });
     },
