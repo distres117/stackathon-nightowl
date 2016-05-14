@@ -35,11 +35,9 @@ router.post('/create', function(req,res,next){
 });
 
 router.get('/session', function(req,res,next){
-  if (req.session.user)
-    res.json(req.session.user);
-  else {
-    res.sendStatus(401);
-  }
+    //mongoose.model('User').findById(req.session.user._id)
+      res.json(req.session.user);
+
 });
 
 module.exports = router;

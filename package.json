@@ -21,9 +21,15 @@
     "express-session": "^1.13.0",
     "factual-api": "^1.0.7",
     "googleplaces": "^0.6.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sourcemaps": "^1.6.0",
     "http-server": "^0.9.0",
     "mongoose": "^4.4.16",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "run-sequence": "^1.1.5"
   },
   "devDependencies": {
     "chai": "^3.5.0",

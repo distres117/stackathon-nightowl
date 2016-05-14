@@ -1,0 +1,5 @@
+<li class="list-group-item clearfix" ng-class="{active: getCurrent()._id === item._id }" ng-click="setCurrent(item)">
+    <div class="col-lg-6 col-md-5 col-sm-6 col-xs-5"><span id="row-text">{{item.name}}</span></div>
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span id="row-text">{{getPrice(item)}}</span></div>
+    <div class="col-lg-3 col-md-4 col-sm-3 col-xs-4"><span id="row-text">{{item.distance}} mi</span></div>
+</li>

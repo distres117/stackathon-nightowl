@@ -1,0 +1,28 @@
+#title{
+  font-family:'Lobster';
+  font-size:x-large;
+}
+
+#find-btn{
+  margin-right:5px;
+}
+
+#welcome-msg{
+  font-family:'Lobster';
+}
+
+li.list-group-item{
+  border:solid 1px;
+}
+
+.btn{
+  border-radius:5px;
+}
+
+#row-text{
+  font-size: small;
+}
+#label-text{
+  font-weight: bold;
+  color: black;
+}

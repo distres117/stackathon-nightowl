@@ -6,7 +6,7 @@ app.set('root', __dirname);
 config(app);
 
 app.use('/*', function(req,res,next){
-  res.send(app.get('root') + '/public/index.html');
+  res.sendFile(app.get('root') + '/public/index.html');
 });
 app.use(function(err, req, res){
     console.error(chalk.red(err));

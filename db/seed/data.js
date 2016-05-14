@@ -7,6 +7,8 @@ var trips = [
         name: 'Canal bar',
         type: 'bar',
         coords: [40.677915, -73.985881],
+        distance: 1.01,
+        price: 2,
         details:[{
           dogfriendly: true,
           drunkfriendly: true
@@ -18,6 +20,8 @@ var trips = [
         name: 'Pork Slope',
         type: 'restaurant',
         coords: [40.674836, -73.981271],
+        price: 3,
+        distance: 0.5,
         details: {
           servespork: true,
           kosher: false
@@ -27,6 +31,8 @@ var trips = [
         name: 'Barclays arena',
         type: 'entertainment',
         coords: [40.682667, -73.975377],
+        price: 3,
+        distance: 1,
         details: [{
           rocksout: true,
           seats: 30000

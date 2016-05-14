@@ -1,0 +1,15 @@
+<div class="login-card">
+    <div class="btn-group btn-group-xs btn-group-justified" role="group"><a class="btn btn-default btn-sm" role="button" href="#" id="find-btn"><i class="material-icons">local_bar</i></a>
+        <a class="btn btn-default btn-sm" role="button" href="#"> <i class="material-icons">restaurant</i></a>
+        <a class="btn btn-default btn-sm" role="button" href="#"> <i class="material-icons">sentiment_very_satisfied</i></a>
+    </div>
+    <h3 class="text-center" id="welcome-msg">Welcome! </h3>
+    <p class="profile-name-card"> </p>
+    <form class="form-signin">
+        <input class="form-control" ng-model="creds.username" type="text" required="" placeholder="User name" autofocus="" id="inputEmail">
+        <input class="form-control" ng-model="creds.password" type="password" required="" placeholder="Password" id="inputPassword">
+        <div class="checkbox"></div>
+        <button class="btn btn-primary btn-block btn-lg btn-signin" type="submit" ng-click="login()">Sign in</button>
+        <button class="btn btn-primary btn-block btn-lg btn-signin" type="submit">Create Account</button>
+    </form>
+</div>

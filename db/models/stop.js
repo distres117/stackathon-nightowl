@@ -4,7 +4,9 @@ var schema = mongoose.Schema({
   name: String,
   type: String,
   coords: [Number],
-  details: []
+  details: [],
+  distance: Number,
+  price: Number
 });
 
 mongoose.model('Stop', schema);
