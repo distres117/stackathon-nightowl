@@ -34,6 +34,12 @@ app.factory("Google", function($http, Stop){
       .then(function(res){
         return res.data;
       });
+    },
+    getGeocode: function(input){
+      return $http.post('/api/google/geocode', {address: input})
+      .then(function(res){
+        return res.data;
+      });
     }
   };
 });

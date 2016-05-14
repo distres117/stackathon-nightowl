@@ -28,4 +28,10 @@
     <ul class="list-group">
         <stop-item ng-repeat="stop in getCurrentTrip().stops" item="stop"></stop-item>
     </ul>
+    <div class="well" ng-show="!getCurrentTrip().stops.length">
+      <h4>You haven't added any stops yet!</h4>
+      <span>What is your address?</span>
+      <input type="text" ng-model="input.address" />
+      <button class="btn btn-success" ng-click="geocode()">Go!</button>
+    </div>
 </div>

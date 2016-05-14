@@ -61,6 +61,24 @@ app.config(function($stateProvider){
           }
           return rtn;
         };
+
+        $scope.geocode = function(){
+          if ($scope.input){
+            return Google.getGeocode($scope.input.address)
+            .then(function(_coords){
+              var coords = [_coords.lat, _coords.lng];
+              var stop = {coords: coords, isNew:true};
+              Stop.setCurrent(stop);
+              return Google.getNearby(stop, 'bar')
+              .then(function(data){
+                //Stop.clearCurrent();
+                Stop.setShownStops(data);
+              });
+
+
+            });
+          }
+        };
         $scope.getCurrent = Stop.getCurrent;
         $scope.currentDisplayStop = Stop.getCurrentDisplay;
       },
