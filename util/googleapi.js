@@ -3,9 +3,9 @@ var Promise = require("bluebird"),
   querystring = require("querystring"),
   https = require("https"), keys;
 
-if (process.env.NODE_ENV=== 'dev')
+if (process.env.NODE_ENV === 'dev')
   keys = require('./keys');
-else
+else if (process.env.NODE_ENV === 'production')
   keys = {places_key: process.env.GOOGLE_KEY};
 
 function HttpResponseProcessor(parseJson, callback) {
