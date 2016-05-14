@@ -28,7 +28,6 @@ app.directive('stopItem', function(){
       $scope.getCurrent = Stop.getCurrent;
       $scope.setCurrent = function(stop){
         Stop.setCurrent(stop);
-
         Stop.setShownStops(stop);
 
       };

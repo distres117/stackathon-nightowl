@@ -15,7 +15,8 @@ app.factory("Google", function($http, Stop){
             type: keyword,
             coords: [item.geometry.location.lat,item.geometry.location.lng],
             price: item.price_level,
-            rating: item.rating
+            rating: item.rating,
+            isNew: true
           };
         });
         return rtn;

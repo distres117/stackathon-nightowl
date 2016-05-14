@@ -1,18 +1,16 @@
 <div class="col-lg-8 col-md-8">
     <div class="btn-group btn-group-xs btn-group-justified" role="group"><a class="btn btn-default btn-sm" role="button" ng-click="getNearby('bar')" id="find-btn"><i class="material-icons">local_bar</i></a>
-        <a class="btn btn-default btn-sm" role="button" href="#"> <i class="material-icons">restaurant</i></a>
-        <a class="btn btn-default btn-sm" role="button" href="#"> <i class="material-icons">sentiment_very_satisfied</i></a>
+        <a class="btn btn-default btn-sm" role="button" href="#" ng-click="getNearby('restaurant')"> <i class="material-icons">restaurant</i></a>
+        <a class="btn btn-default btn-sm" role="button" href="#" ng-click="getNearby('entertainment')"> <i class="material-icons">sentiment_very_satisfied</i></a>
     </div>
     <p> </p>
     <ng-map default-style="true" center="40.693464, -73.980318" zoom="11">
         <info-window id="iw">
           <div id="label-text">
-            <p>
-              <b>name: {{currentDisplayStop().name}}</b>
-            </p>
-            <p>
-              <b>rating: {{currentDisplayStop().rating}}</b>
-            </p>
+              name: {{currentDisplayStop().name}}<br/>
+              rating: {{currentDisplayStop().rating || '?'}}<br/>
+              price: {{getPrice() || '?'}}<br/>
+            </br/>
           </div>
         </info-window>
         <marker id="{{stop._id}}" ng-repeat="stop in shownStops()" position="{{stop.coords}}"
@@ -20,7 +18,7 @@
             draggable="true" on-click="showDetails(stop)">
           </marker>
     </ng-map>
-    <button ng-show="currentDisplayStop()" class="btn btn-success btn-block" ng-click="addStop()" type="button">+Add this stop</button>
+    <button ng-show="currentDisplayStop().isNew" class="btn btn-success btn-block" ng-click="addStop()" type="button">+Add this stop</button>
     <button ng-hide="!getCurrent()" class="btn btn-danger btn-block" type="button" ng-click="removeStop()">Remove this stop</button>
 </div>
 <p> </p>

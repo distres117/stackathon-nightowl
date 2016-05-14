@@ -11,9 +11,9 @@ app.factory('Trip', function($http, Stop){
       return $http.put('/api/trips/' + currentTrip._id, {stop: stop})
       .then(function(res){
         var newStop = res.data;
-        Stop.setCurrent(newStop);
         Stop.setShownStops(stop);
         currentTrip.stops.unshift(stop);
+        Stop.setCurrent(newStop);
       });
     },
     removeStop: function(stop){

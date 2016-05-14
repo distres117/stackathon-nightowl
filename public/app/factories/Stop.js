@@ -28,7 +28,7 @@ app.factory('Stop', function(NgMap){
       return shownStops;
     },
     setShownStops: function(stops){
-      //TO DO: set map bounds
+      map.hideInfoWindow('iw');
       if (Array.isArray(stops))
         shownStops = stops;
       else {

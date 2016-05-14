@@ -36,6 +36,7 @@ app.config(function($stateProvider){
           return Google.getDistance(stop)
           .then(function(distance){
             stop.distance = distance.value;
+            stop.isNew = false;
             return Trip.addStop(stop);
           });
 
@@ -51,6 +52,15 @@ app.config(function($stateProvider){
           Trip.getCurrentTrip().editing = false;
           return Trip.editTrip();
 
+        };
+
+        $scope.getPrice = function(){
+          var rtn = '';
+          if (Stop.getCurrentDisplay()){
+            for(var i =0;i<Stop.getCurrentDisplay().price;i++)
+              rtn+='$';
+          }
+          return rtn;
         };
         $scope.getCurrent = Stop.getCurrent;
         $scope.currentDisplayStop = Stop.getCurrentDisplay;
