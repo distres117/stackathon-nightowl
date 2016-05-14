@@ -39,8 +39,16 @@ router.route('/:tripId')
       req.trip.name = req.body.name;
     if (req.body.distance)
       req.trip.distance = req.body.distance;
-    if (req.body.stop)
-      req.trip.stops.push(req.body.stop);
+    if (req.body.stop){
+      var Stop = mongoose.model('Stop');
+      var params = req.body.stop;
+      var stop = new Stop();
+      stop.name = params.name;
+      stop.coords = params.coords;
+      
+
+      req.trip.stops.push(stop);
+    }
     req.user.save()
     .then(function(user){
       res.json(req.trip);

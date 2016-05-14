@@ -5,11 +5,16 @@ app.factory('Stop', function(NgMap){
   });
   return {
     setCurrent: function(stop){
+      currentDisplayStop = null;
       currentStop = stop;
 
     },
+    clearCurrent: function(){
+      currentStop = null;
+    },
     getDetails: function(stop){
       currentDisplayStop = stop;
+      currentStop = null;
       map.showInfoWindow('iw', stop._id);
     },
     getCurrentDisplay: function(){
@@ -22,6 +27,7 @@ app.factory('Stop', function(NgMap){
       return shownStops;
     },
     setShownStops: function(stops){
+      //TO DO: set map bounds
       if (Array.isArray(stops))
         shownStops = stops;
       else {

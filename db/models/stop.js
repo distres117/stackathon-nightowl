@@ -6,7 +6,8 @@ var schema = mongoose.Schema({
   coords: [Number],
   details: [],
   distance: Number,
-  price: Number
+  price: Number,
+  rating: Number
 });
 
 mongoose.model('Stop', schema);

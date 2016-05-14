@@ -10,6 +10,9 @@
             <p>
               <b>name: {{currentDisplayStop().name}}</b>
             </p>
+            <p>
+              <b>rating: {{currentDisplayStop().rating}}</b>
+            </p>
           </div>
         </info-window>
         <marker id="{{stop._id}}" ng-repeat="stop in shownStops()" position="{{stop.coords}}"
@@ -17,13 +20,13 @@
             draggable="true" on-click="showDetails(stop)">
           </marker>
     </ng-map>
-    <button class="btn btn-success btn-block" type="button">+Add this stop</button>
+    <button ng-show="currentDisplayStop()" class="btn btn-success btn-block" ng-click="addStop()" type="button">+Add this stop</button>
     <button ng-hide="!getCurrent()" class="btn btn-danger btn-block" type="button">Remove this stop</button>
 </div>
 <p> </p>
 <div class="col-lg-4 col-md-4">
     <h4>{{trip.name}}</h4>
     <ul class="list-group">
-        <stop-item ng-repeat="stop in trip.stops" item="stop"></stop-item>
+        <stop-item ng-repeat="stop in getCurrentTrip().stops" item="stop"></stop-item>
     </ul>
 </div>
