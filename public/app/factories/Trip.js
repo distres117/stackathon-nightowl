@@ -1,6 +1,9 @@
 app.factory('Trip', function($http, Stop){
   var currentTrip;
   return {
+    editTrip: function(){
+      return $http.put('/api/trips/' + currentTrip._id, {name: currentTrip.newName });
+    },
     addStop: function(stop){
       var data = {
 
@@ -20,6 +23,8 @@ app.factory('Trip', function($http, Stop){
         currentTrip.stops.splice(idx,1);
         Stop.clearCurrent();
         Stop.setShownStops([]);
+        // if (currentTrip.stops.length)
+        //   Stop.setCurrent(currentTrip.stops[0], true);
       });
     },
     setCurrentTrip: function(trip){
@@ -27,6 +32,9 @@ app.factory('Trip', function($http, Stop){
     },
     getCurrentTrip: function(){
       return currentTrip;
+    },
+    createTrip: function(){
+
     }
   };
 });

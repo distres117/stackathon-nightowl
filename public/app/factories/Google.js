@@ -17,7 +17,6 @@ app.factory("Google", function($http){
             rating: item.rating
           };
         });
-        console.log(rtn);
         return rtn;
       });
     }

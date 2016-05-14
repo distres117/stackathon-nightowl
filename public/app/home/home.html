@@ -25,7 +25,8 @@
 </div>
 <p> </p>
 <div class="col-lg-4 col-md-4">
-    <h4>{{trip.name}}</h4>
+    <h4 ng-show="!getCurrentTrip().editing" ng-click="getCurrentTrip().editing = !getCurrentTrip().editing">{{getCurrentTrip().name}}</h4>
+    <input ng-show="getCurrentTrip().editing" ng-model="getCurrentTrip().newName" ng-blur="editTrip()" type="text" value="{{getCurrentTrip().name}}" ></input>
     <ul class="list-group">
         <stop-item ng-repeat="stop in getCurrentTrip().stops" item="stop"></stop-item>
     </ul>

@@ -4,7 +4,7 @@ app.factory('Stop', function(NgMap){
     map = _map;
   });
   return {
-    setCurrent: function(stop){
+    setCurrent: function(stop, show){
       currentDisplayStop = null;
       currentStop = stop;
       map.hideInfoWindow('iw');

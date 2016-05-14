@@ -40,6 +40,13 @@ app.config(function($stateProvider){
           var stop = Stop.getCurrent();
           return Trip.removeStop(stop);
         };
+
+        $scope.editTrip = function(){
+          Trip.getCurrentTrip().name = Trip.getCurrentTrip().newName;
+          Trip.getCurrentTrip().editing = false;
+          return Trip.editTrip();
+
+        };
         $scope.getCurrent = Stop.getCurrent;
         $scope.currentDisplayStop = Stop.getCurrentDisplay;
       },
