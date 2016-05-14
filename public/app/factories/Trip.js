@@ -34,7 +34,10 @@ app.factory('Trip', function($http, Stop){
       return currentTrip;
     },
     createTrip: function(){
-
+      return $http.post('/api/trips')
+      .then(function(res){
+        return res.data;
+      });
     }
   };
 });

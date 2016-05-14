@@ -26,3 +26,19 @@ li.list-group-item{
   font-weight: bold;
   color: black;
 }
+.fade.ng-enter {
+  transition:0.5s linear all;
+  opacity:0;
+}
+
+/* The finishing CSS styles for the enter animation */
+.fade{
+  opacity: 1;
+  transition:0.5s linear all;
+}
+.fade.ng-enter{
+  opacity:1;
+}
+.fade.ng-leave {
+  opacity:0;
+}

@@ -7,7 +7,7 @@ var trips = [
         name: 'Canal bar',
         type: 'bar',
         coords: [40.677915, -73.985881],
-        distance: 1.01,
+        distance: 2000,
         price: 2,
         details:[{
           dogfriendly: true,
@@ -21,7 +21,7 @@ var trips = [
         type: 'restaurant',
         coords: [40.674836, -73.981271],
         price: 3,
-        distance: 0.5,
+        distance: 1000,
         details: {
           servespork: true,
           kosher: false
@@ -32,7 +32,7 @@ var trips = [
         type: 'entertainment',
         coords: [40.682667, -73.975377],
         price: 3,
-        distance: 1,
+        distance: 1000,
         details: [{
           rocksout: true,
           seats: 30000

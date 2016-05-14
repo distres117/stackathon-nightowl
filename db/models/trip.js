@@ -1,7 +1,10 @@
 var mongoose = require('mongoose');
 
 var schema = mongoose.Schema({
-  name: String,
+  name: {
+    type: String,
+    default: 'New trip'
+  },
   distance: {
     type: Number,
     default: 0

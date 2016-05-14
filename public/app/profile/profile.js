@@ -7,6 +7,7 @@ app.config(function($stateProvider, ChartJsProvider){
         ChartJsProvider.setOptions({
           maintainAspectRatio: false
         });
+        $scope.data =[];
         NgMap.getMap({id: 'profile_map'}).then(function(_map){
           map = _map;
         });
@@ -20,6 +21,7 @@ app.config(function($stateProvider, ChartJsProvider){
           });
             map.setCenter(bounds.getCenter());
             map.fitBounds(bounds);
+            getChartData();
         };
         $scope.getTotalPrice = function(trip){
           var items = trip.stops.filter(function(item){
@@ -50,12 +52,33 @@ app.config(function($stateProvider, ChartJsProvider){
             });
           }
         };
+        function getChartData(){
+          if ($scope.selectedTrip){
+          var costItems = [], distItems =[];
+          var n = $scope.selectedTrip.stops.length;
+          for(var i =0;i<n;i++){
+            var stop = $scope.selectedTrip.stops[i];
+            distItems.push( Number((n / (stop.distance * 0.000621371)).toPrecision(2)));
+            costItems.push(stop.price || 0);
+            }
+
+            $scope.data.push(costItems);
+            console.log($scope.data);
+          }
+        }
+        $scope.getLabels = function(){
+          if ($scope.selectedTrip){
+            return $scope.selectedTrip.stops.map(function(item,i){
+              return i;
+            });
+          }
+        };
         $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
-  $scope.series = ['Series A', 'Series B'];
-  $scope.data = [
-    [65, 59, 80, 81, 56, 55, 40],
-    [28, 48, 40, 19, 86, 27, 90]
-  ];
+  $scope.series = ['Average cost per stop', 'Average distance to stop'];
+  // $scope.data = [
+  //   [65, 59, 80, 81, 56, 55, 40],
+  //   [28, 48, 40, 19, 86, 27, 90]
+  // ];
       },
       resolve:{
         user: function(User){

@@ -32,12 +32,8 @@
       <div class="panel-heading">
           <h3 class="panel-title">Trip Details</h3></div>
       <div class="panel-body">
-        <h4>Average cost per stop</h4>
-        <canvas style="height: 150px;" id="line" class="chart chart-line" chart-data="data"
-        chart-labels="labels" chart-legend="true" chart-series="series"></canvas>
-        <h4>Average distance to each stop</h4>
-        <canvas style="height: 150px;" id="line" class="chart chart-line" chart-data="data"
-        chart-labels="labels" chart-legend="true" chart-series="series"></canvas>
+          <!-- <canvas style="height: 150px;" id="line" class="chart chart-line" chart-data="data"
+          chart-labels="" chart-legend="true" chart-series="series"></canvas> -->
         <ng-map id="profile_map" center="40.693464, -73.980318" zoom="11" style="height: 200px;">
           <shape name="polyline"
         path="{{getLocations()}}"
