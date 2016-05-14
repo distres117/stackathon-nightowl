@@ -38,6 +38,9 @@ app.factory('Trip', function($http, Stop){
       .then(function(res){
         return res.data;
       });
+    },
+    removeTrip: function(trip){
+      return $http.delete('/api/trips/' + trip._id);
     }
   };
 });

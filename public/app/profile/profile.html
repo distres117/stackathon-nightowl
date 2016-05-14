@@ -25,7 +25,8 @@
         </div>
     </div>
     <div class="panel-footer">
-        <button class="btn btn-success btn-sm" type="button" ng-disabled="!selectedTrip">Open trip</button>
+        <button class="btn btn-success btn-sm" type="button" ng-click="loadTrip()" ng-disabled="!selectedTrip">Open trip</button>
+        <button class="btn btn-danger btn-sm" type="button" style="margin-left: 5px;" ng-click="removeTrip()" ng-disabled="!selectedTrip">Remove trip</button>
     </div>
 </div>
   <div class="panel panel-default">

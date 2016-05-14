@@ -3,7 +3,7 @@ app.config(function($stateProvider, ChartJsProvider){
     .state('profile', {
       url: '/profile',
       templateUrl: '/app/profile/profile.html',
-      controller: function(user, $scope, NgMap){
+      controller: function(user, $scope, NgMap, $state, Trip, User){
         ChartJsProvider.setOptions({
           maintainAspectRatio: false
         });
@@ -52,6 +52,10 @@ app.config(function($stateProvider, ChartJsProvider){
             });
           }
         };
+        $scope.loadTrip = function(){
+          Trip.setCurrentTrip($scope.selectedTrip);
+          $state.go('home');
+        };
         function getChartData(){
           if ($scope.selectedTrip){
           var costItems = [], distItems =[];
@@ -63,9 +67,17 @@ app.config(function($stateProvider, ChartJsProvider){
             }
 
             $scope.data.push(costItems);
-            console.log($scope.data);
           }
         }
+        $scope.removeTrip = function(){
+          return Trip.removeTrip($scope.selectedTrip)
+          .then(function(){
+            return User.getUser();
+          })
+          .then(function(user){
+            $scope.user = user;
+          });
+        };
         $scope.getLabels = function(){
           if ($scope.selectedTrip){
             return $scope.selectedTrip.stops.map(function(item,i){
