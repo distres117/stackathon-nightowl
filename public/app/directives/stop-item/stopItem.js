@@ -11,6 +11,20 @@ app.directive('stopItem', function(){
           rtn+='$';
         return rtn;
       };
+      $scope.getType = function(){
+        if ($scope.item.type==='bar')
+          return 'local_bar';
+        else if ($scope.item.type === 'restaurant')
+          return 'restaurant';
+        else if ($scope.item.type === 'entertainment')
+          return 'sentiment_very_satisfied';
+      };
+      $scope.getName = function(){
+        return $scope.item.name.slice(0,17);
+      };
+      $scope.getDistance = function(){
+        return ($scope.item.distance * 0.000621371).toPrecision(1);
+      };
       $scope.getCurrent = Stop.getCurrent;
       $scope.setCurrent = function(stop){
         Stop.setCurrent(stop);

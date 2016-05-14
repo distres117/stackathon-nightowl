@@ -15,7 +15,7 @@ app.config(function($stateProvider){
           return Trip.getCurrentTrip();
         };
         $scope.showDetails = function(e, stop){
-          if (!Stop.getCurrent())
+          // if (!Stop.getCurrent())
             Stop.getDetails(stop);
         };
         $scope.getNearby = function(keyword){
@@ -23,7 +23,7 @@ app.config(function($stateProvider){
           if (currentStop){
             return Google.getNearby(currentStop, keyword)
             .then(function(data){
-              Stop.clearCurrent();
+              //Stop.clearCurrent();
               Stop.setShownStops(data);
             });
           }
@@ -33,7 +33,12 @@ app.config(function($stateProvider){
         };
         $scope.addStop = function(){
           var stop = Stop.getCurrentDisplay();
-          return Trip.addStop(stop);
+          return Google.getDistance(stop)
+          .then(function(distance){
+            stop.distance = distance.value;
+            return Trip.addStop(stop);
+          });
+
         };
 
         $scope.removeStop = function(){

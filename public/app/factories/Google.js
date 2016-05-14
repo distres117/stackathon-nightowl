@@ -1,4 +1,4 @@
-app.factory("Google", function($http){
+app.factory("Google", function($http, Stop){
   return {
     getNearby: function(stop, keyword){
       var data = {
@@ -12,12 +12,26 @@ app.factory("Google", function($http){
           return {
             _id: i+'',
             name: item.name,
+            type: keyword,
             coords: [item.geometry.location.lat,item.geometry.location.lng],
             price: item.price_level,
             rating: item.rating
           };
         });
         return rtn;
+      });
+    },
+    getDistance: function(newStop){
+      var currentStop = Stop.getCurrent();
+      var data = {
+        origins: currentStop.coords.toString(),
+        destinations: newStop.coords.toString(),
+        units: 'imperial',
+        mode: 'walking'
+      };
+      return $http.post('/api/google/distance', data)
+      .then(function(res){
+        return res.data;
       });
     }
   };

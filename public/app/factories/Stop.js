@@ -15,7 +15,7 @@ app.factory('Stop', function(NgMap){
     },
     getDetails: function(stop){
       currentDisplayStop = stop;
-      currentStop = null;
+      //currentStop = null;
       map.showInfoWindow('iw', stop._id);
     },
     getCurrentDisplay: function(){
