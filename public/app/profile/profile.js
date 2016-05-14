@@ -1,9 +1,12 @@
-app.config(function($stateProvider){
+app.config(function($stateProvider, ChartJsProvider){
   $stateProvider
     .state('profile', {
       url: '/profile',
       templateUrl: '/app/profile/profile.html',
       controller: function(user, $scope, NgMap){
+        ChartJsProvider.setOptions({
+          maintainAspectRatio: false
+        });
         NgMap.getMap({id: 'profile_map'}).then(function(_map){
           map = _map;
         });
@@ -47,6 +50,12 @@ app.config(function($stateProvider){
             });
           }
         };
+        $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+  $scope.series = ['Series A', 'Series B'];
+  $scope.data = [
+    [65, 59, 80, 81, 56, 55, 40],
+    [28, 48, 40, 19, 86, 27, 90]
+  ];
       },
       resolve:{
         user: function(User){
