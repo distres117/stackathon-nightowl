@@ -2,9 +2,9 @@ var expect = require('chai').expect,
   apicall = require('../util/googleapi'),
   Promise = require('bluebird');
 
-xdescribe('google places api', function(){
+describe('google places api', function(){
 
-  xit('gets data within certain proximity using promises', function(){
+  it('gets data within certain proximity using promises', function(){
     var parameters = {
         location: [40.678126, -73.986432].toString(),
         radius: 1000,
@@ -15,7 +15,7 @@ xdescribe('google places api', function(){
       expect(res.results.length).to.be.ok;
     });
   });
-  xit('gets data for given address', function(){
+  it('gets data for given address', function(){
     var parameters = {
       address: '501 president st, brooklyn, ny 11215'
     };
@@ -33,7 +33,7 @@ xdescribe('google places api', function(){
     };
     return apicall('/maps/api/distancematrix/', parameters)
     .then(function(res){
-      expect(res.rows[0].elements[0].distance.value).to.equal(1324);
+      expect(res.rows[0].elements[0].distance.value).to.equal(1323);
     });
   });
 });
