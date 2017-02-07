@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "TEST=true NODE_ENV=dev nodemon --exec mocha",
-    "start-dev": "NODE_ENV=dev nodemon server.js",
+    "test": "cross-env TEST=true NODE_ENV=dev nodemon --exec mocha",
+    "start-dev": "cross-env NODE_ENV=dev nodemon server.js",
     "start": "node server.js",
     "seed": "node db/seed/index.js",
-    "postinstall" : "npm run seed"
+    "postinstall": "npm run build && npm run seed",
+    "build":"gulp buildJS"
   },
   "author": "",
   "license": "ISC",
@@ -18,6 +19,7 @@
     "body-parser": "^1.15.1",
     "chalk": "^1.1.3",
     "connect-mongo": "^1.1.0",
+    "cross-env": "^3.1.4",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
     "factual-api": "^1.0.7",
